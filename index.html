@@ -48,7 +48,6 @@
         
         #app #wage {
             width: 98%;
-            /*margin: */
             border-radius: 10px;
             padding: 8px 15px;
         }
@@ -124,13 +123,13 @@
         data: {
             wages: 0,
             EndIns: 0,
-            endPercent: 8,
+            endPercent: 4,
             medicalIns: 0,
-            medicalPercent: 8,
+            medicalPercent: 4,
             unemployment: 0,
             unemplPercent: 0,
             fund: 0,
-            fundPercent: 0,
+            fundPercent: 8,
             preTax: 0,
             personalTax: 0,
         },
@@ -175,9 +174,9 @@
                     // 2.三险一金
                 var sanXianYiJin = 0
                 if ($w < 7662) {
-                    sanXianYiJin = $w * (0.08 + 0.02 + 0.005 + 0.12)
+                    sanXianYiJin = $w * (this.endPercent / 100 + this.medicalPercent / 100 + this.unemplPercent / 100 + this.fundPercent / 100)
                 } else {
-                    sanXianYiJin = 7662 * (0.08 + 0.02 + 0.005 + 0.12)
+                    sanXianYiJin = 7662 * (this.endPercent / 100 + this.medicalPercent / 100 + this.unemplPercent / 100 + this.fundPercent / 100)
                 }
 
                 // 3.应纳税所得额
